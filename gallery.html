@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>photo gallery - nacpan beach ii</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="site">
+    <header class="header">
+      <a class="logo" href="home.html">
+        <div class="mark">nb</div>
+        <div>
+          <div style="font-weight:700">gallery</div>
+        </div>
+      </a>
+      <nav><div class="nav-list">
+        <a href="home.html">home</a>
+        <a class="active" href="gallery.html">gallery</a>
+        <a href="attractions.html">attractions</a>
+        <a href="transport.html">transport</a>
+        <a href="aboutus.html">about</a>
+      </div></nav>
+    </header>
+
+    <main>
+      <section class="card-sm">
+        <h2>photo gallery</h2>
+        <p>click any photo to open a larger view.</p>
+
+        <div class="gallery-grid" id="gallery">
+          <!-- remote images from trusted travel sites (alt text included). replace with local images if preferred -->
+          <img alt="nacpan beach shoreline with palms" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/El_Nido_Bay_December_2018.jpg/500px-El_Nido_Bay_December_2018.jpg">
+          <img alt="aerial curve of nacpan beach" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/El_Nido_Fishing_Village_-_panoramio.jpg/500px-El_Nido_Fishing_Village_-_panoramio.jpg">
+          <img alt="sunset view at a long stretch of white sand" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Malapascua_Island%2C_Sunset_on_the_beach_2%2C_Philippines.jpg">
+          <img alt="coconut palms along the beach" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Puraran_beach.jpg/500px-Puraran_beach.jpg">
+          <img alt="local bangka boat on shore" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Motorboat_at_Kankaria_lake.JPG/500px-Motorboat_at_Kankaria_lake.JPG">
+          <img alt="twin beaches viewpoint" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Docking_area_to_Underground_River.jpg/960px-Docking_area_to_Underground_River.jpg">
+          <img alt="soft cream sand up-close" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Sandbar_at_Tinalisayan_Island_in_San_Pascual%2C_Masbate.jpg/500px-Sandbar_at_Tinalisayan_Island_in_San_Pascual%2C_Masbate.jpg">
+          <img alt="sunset silhouettes on nacpan" src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Plaza_Beach.jpg">
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>gallery photos: royalty-free / travel blogs (used for demo)</div>
+      <div>© nacpan beach ii</div>
+    </footer>
+  </div>
+
+  <script>
+    // light simple image click to fullscreen (no libraries)
+    document.getElementById('gallery').addEventListener('click', function(e){
+      if(e.target.tagName !== 'IMG') return;
+      const src = e.target.src;
+      const overlay = document.createElement('div');
+      overlay.style.position='fixed';
+      overlay.style.inset=0;
+      overlay.style.background='rgba(0,0,0,0.😎';
+      overlay.style.display='flex';
+      overlay.style.alignItems='center';
+      overlay.style.justifyContent='center';
+      overlay.style.zIndex=9999;
+      overlay.innerHTML = '<img src="'+src+'" style="max-width:95%;max-height:90%;border-radius:12px">';
+      overlay.addEventListener('click', ()=> overlay.remove());
+      document.body.appendChild(overlay);
+    });
+  </script>
+</body>
+</html>
